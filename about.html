@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡 SealCert - About Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #121212, #2b2b2b);
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        /* Header with Logo and Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2b2b2b;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #6c5ce7; /* Purple color */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc33;
+        }
+
+        /* About Us Section */
+        .about-section {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h1::before {
+            content: '🛡';
+            font-size: 1.2em;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.3em;
+            line-height: 1.6;
+            color: #d3d3d3;
+            text-align: left;
+        }
+
+        /* Divider */
+        .divider {
+            margin: 60px auto;
+            width: 80%;
+            height: 2px;
+            background-color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            padding: 20px;
+            text-align: center;
+            color: #d3d3d3;
+        }
+
+        /* Sponsors Section */
+        .sponsor-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .sponsor-logo img {
+            max-width: 120px;
+            height: auto;
+        }
+
+        .sponsor-container p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="logo">SealCert</div> <!-- Logo in purple -->
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sponsor.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Us Section -->
+    <div class="about-section">
+        <h1>About Us</h1>
+        <div class="about-content">
+            <p>
+                SealCert is transforming digital certificate issuance and verification by leveraging randomized seal generation algorithms and secure blockchain technology. Verified organizations can generate tamper-proof certificates with unique, randomly generated seals using a variety of secure algorithms. This prevents predictability, ensuring that each certificate is uniquely identifiable and highly resistant to forgery. Each seal embeds metadata about the algorithm used, adding an additional layer of security that only SealCert can interpret. The certificate data, including the chosen algorithm and seal, is securely stored on the blockchain, guaranteeing immutability and verifiability long after issuance. SealCert’s decentralized approach brings trust and security to digital credentials, offering a reliable solution for both issuers and users in an increasingly digital world.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

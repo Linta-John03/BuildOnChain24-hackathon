@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SealCert - Issue Certificate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dark theme background */
+            color: white;
+        }
+
+        header {
+            background-color: #5D3FD3; /* Blue theme header */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1e1e1e; /* Slightly lighter dark for the container */
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .form-section, .upload-section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .form-section h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #5D3FD3; /* Blue heading */
+        }
+
+        .form-section label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .form-section input[type="text"], 
+        .form-section input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #333;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .upload-section h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #5D3FD3; /* Blue heading */
+        }
+
+        .upload-section input[type="file"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #333;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .form-section button, .upload-section button {
+            background-color: #5D3FD3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-section button:hover, .upload-section button:hover {
+            background-color: #4529a3;
+        }
+
+        .upload-section .download-btn {
+            display: none; /* Initially hidden */
+            margin-top: 10px;
+            background-color: #5D3FD3; /* Blue button */
+        }
+
+        .upload-section.active .download-btn {
+            display: inline-block; /* Show when active */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">SealCert</div>
+    <nav>
+        <ul>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="sponsor.html">Sponsors</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <!-- Left section: Event details form -->
+    <div class="form-section">
+        <h1>Event Details</h1>
+        <label for="eventName">Enter Event Name:</label>
+        <input type="text" id="eventName" name="eventName">
+
+        <label for="orgName">Enter Organization Name:</label>
+        <input type="text" id="orgName" name="orgName">
+
+        <label for="eventDate">Select Event Date:</label>
+        <input type="date" id="eventDate" name="eventDate">
+
+        <label for="eventPlace">Enter Event Place:</label>
+        <input type="text" id="eventPlace" name="eventPlace">
+    </div>
+
+    <!-- Right section: Upload certificate and download -->
+    <div class="upload-section">
+        <h1>Upload Certificate</h1>
+        <input type="file" id="certificateUpload">
+
+        <button type="button" onclick="issueCertificate()">Issue Certificate</button>
+
+        <button class="download-btn">Download Issued Certificate</button>
+    </div>
+</div>
+
+<script>
+    function issueCertificate() {
+        // Disable the issue button during processing
+        const issueButton = document.querySelector('.upload-section button[type="button"]');
+        issueButton.disabled = true; // Disable the button
+        
+        // Simulate processing time of 3 seconds
+        setTimeout(() => {
+            // Show the download button after the delay
+            document.querySelector('.upload-section').classList.add('active');
+            issueButton.disabled = false; // Re-enable the button after processing
+        }, 3000); // 3000 milliseconds = 3 seconds
+    }
+</script>
+
+</body>
+</html>
