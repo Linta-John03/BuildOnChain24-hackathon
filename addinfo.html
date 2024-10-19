@@ -172,7 +172,6 @@
 
         <button type="button" onclick="issueCertificate()">Issue Certificate</button>
 
-        <button class="download-btn">Download Issued Certificate</button>
     </div>
 </div>
 
@@ -181,13 +180,6 @@
         // Disable the issue button during processing
         const issueButton = document.querySelector('.upload-section button[type="button"]');
         issueButton.disabled = true; // Disable the button
-        
-        // Simulate processing time of 3 seconds
-        setTimeout(() => {
-            // Show the download button after the delay
-            document.querySelector('.upload-section').classList.add('active');
-            issueButton.disabled = false; // Re-enable the button after processing
-        }, 3000); // 3000 milliseconds = 3 seconds
     }
 </script>
 
