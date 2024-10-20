@@ -1,0 +1,23 @@
+type storage = {
+  stored_codes : (string, unit) map;
+}
+
+type parameter = 
+  | StoreAndCheckCode of string
+
+(* Entry point of the smart contract *)
+let main (p : parameter) (s : storage) : (operation list * storage) =
+  match p with
+  | StoreAndCheckCode unique_code ->
+    (* Check if the code exists in the map *)
+    let exists = Map.mem unique_code s.stored_codes in
+    if exists then
+      ([], s) (* Return no operations if code exists *)
+    else
+      let new_storage = { stored_codes = Map.add unique_code () s.stored_codes } in
+      ([], new_storage) (* Store the new code and return the new storage *)
+
+(* Initialize storage for the smart contract *)
+let initial_storage = {
+  stored_codes = Map.empty;
+}
