@@ -1,0 +1,39 @@
+type storage = {
+    stored_codes : (string, unit) map  
+}
+
+type return = operation list * storage
+
+type parameter = 
+    | Store_code of string  
+    | Verify_code of string 
+type verify_result = {
+    exists : bool;
+    message : string
+}
+
+[@entry]
+let store_code (param : parameter) (store : storage) : return =
+    match param with
+    | Store_code code -> (
+        let exists = Map.mem code store.stored_codes in
+        
+        if exists then
+            (([]: operation list), store)
+        else
+            
+            let updated_codes = Map.add code () store.stored_codes in
+            let new_storage = { store with stored_codes = updated_codes } in
+            (([]: operation list), new_storage)
+    )
+    | Verify_code _ -> 
+        // Wrong entrypoint called
+        (([]: operation list), store)
+
+[@view]
+let verify_code (code : string) (store : storage) : verify_result =
+    let exists = Map.mem code store.stored_codes in
+    if exists then
+        { exists = true; message = "Code is valid and exists" }
+    else
+        { exists = false; message = "Code does not exist" }
